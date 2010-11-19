@@ -14,10 +14,11 @@
 #include "ofxTween.h"
 #include "ofxEasingQuad.h"
 
+#define kRadiusThreshold      5
 #define kMinCreatureRadius   30
 #define kMaxCreatureRadius   60
 #define kMinCreatureRange   100
-#define kMaxCreatureRange   300
+#define kMaxCreatureRange   600
 #define kCreatureStrength    10
 
 //========================================================================
@@ -26,23 +27,27 @@ class Creature {
     public:
         static ofImage  overlay;
     
-                        Creature(int _id, b2World* _world, float _x, float _y);
+                        Creature(int _id, b2World* _world, float _x, float _y, float _radius);
                         ~Creature();
         
-        void            update();
+        void            update(float _x, float _y, float _radius);
         void            draw();
     
         const b2Vec2&   pos();
         
         b2World         *world;
         b2Body          *body;
+        b2Fixture       *fixture;
+    
+        b2CircleShape   cs;
+        b2FixtureDef    fd;
         
         int             id;
         float           radius;
         ofColor         col;
         
-        float32         range;
-        float32         strength;
+        float           range;
+        float           strength;
         
         ofxTween        motionTween;
         ofxTween        radiusTween;

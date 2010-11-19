@@ -12,30 +12,28 @@
 ofImage Creature::overlay;
 
 //--------------------------------------------------------------
-Creature::Creature(int _id, b2World* _world, float _x, float _y) {
+Creature::Creature(int _id, b2World* _world, float _x, float _y, float _radius) {
     id    = _id;
     world = _world;
     
     // create a body and add it to the world
     b2BodyDef bd;
     bd.type = b2_staticBody;
-    bd.position.Set(_x, _y);
+    bd.position.Set(PIX2M(_x), PIX2M(_y));
     bd.angle = 0;
     
     body = world->CreateBody(&bd);
     
     // add collision shapes to that body
-    radius = ofRandom(kMinCreatureRadius, kMaxCreatureRadius);
-    b2CircleShape m_circle;
-    m_circle.m_radius = PIX2M(radius);
+    radius = _radius;
+    cs.m_radius = PIX2M(radius);
     
-    b2FixtureDef fd;
-    fd.shape       = &m_circle;
+    fd.shape       = &cs;
     fd.density     = 0;
     fd.friction    = .1f;
     fd.restitution = .1f;
     
-    body->CreateFixture(&fd);
+    fixture = body->CreateFixture(&fd);
     
     // set attraction parameters
     range    = PIX2M(ofMap(radius, kMinCreatureRadius, kMaxCreatureRadius, kMinCreatureRange, kMaxCreatureRange));
@@ -60,16 +58,30 @@ Creature::~Creature() {
 }
 
 //--------------------------------------------------------------
-void Creature::update() {
-	if (!motionTween.isRunning()) {
-		motionTween.setParameters(quad, ofxTween::easeOut, 
-                                  pos().x, PIX2M(ofRandom(0, ofGetWidth())), 
-                                  ofRandom(2000, 10000), ofRandom(0, 500));
-		motionTween.addValue(pos().y, PIX2M(ofRandom(0, ofGetHeight())));
-		motionTween.start();
-	} else {
-        body->SetTransform(b2Vec2(motionTween.update(), motionTween.getTarget(1)), 0);
-    }
+void Creature::update(float _x, float _y, float _radius) {
+    body->SetTransform(b2Vec2(PIX2M(_x), PIX2M(_y)), 0);
+    
+//    body->DestroyFixture(fixture);
+//    
+//    if (ABS(radius - _radius) > kRadiusThreshold) {
+//        radius = _radius;
+//        cs.m_radius = PIX2M(radius);
+//        fixture = body->CreateFixture(&fd);
+//        
+//        // set attraction parameters
+//        range    = PIX2M(ofMap(radius, kMinCreatureRadius, kMaxCreatureRadius, kMinCreatureRange, kMaxCreatureRange));
+//        strength = PIX2M(radius * kCreatureStrength);
+//    }
+    
+//	if (!motionTween.isRunning()) {
+//		motionTween.setParameters(quad, ofxTween::easeOut, 
+//                                  pos().x, PIX2M(ofRandom(0, ofGetWidth())), 
+//                                  ofRandom(2000, 10000), ofRandom(0, 500));
+//		motionTween.addValue(pos().y, PIX2M(ofRandom(0, ofGetHeight())));
+//		motionTween.start();
+//	} else {
+//        body->SetTransform(b2Vec2(motionTween.update(), motionTween.getTarget(1)), 0);
+//    }
 	
 //	if (!radiusTween.isRunning()) {
 //		int factor = ofMap(Creature::nbOfBibittes, 1, 25, 1, 7);

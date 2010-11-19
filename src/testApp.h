@@ -2,11 +2,16 @@
 
 #include "ofMain.h"
 #include "mtlBox2d.h"
+#include "ofxCvHaarFinder.h"
 
 #include "FroBall.h"
 #include "Creature.h"
 
-#define kMaxFroBalls    2048
+#define kCaptureWidth    320
+#define kCaptureHeight   240
+#define kCaptureScale      2
+
+#define kMaxFroBalls    1024
 #define kNumBlendModes    10
 
 //========================================================================
@@ -45,9 +50,18 @@ class testApp : public ofBaseApp {
     
         int                 numFroBalls; 
         FroBall*            froBalls[kMaxFroBalls];
-    
+        
         bool                white;
         int                 srcBlend;
         int                 dstBlend;
+    
+        ofVideoGrabber      capture;
+        ofxCvColorImage     colorIn;
+        ofxCvGrayscaleImage grayIn;
+        ofxCvHaarFinder     faceTracker;
+        ofRectangle         face;
+    
+        bool                debug;
+        bool                info;
 		
 };
