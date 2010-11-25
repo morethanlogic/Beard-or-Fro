@@ -10,24 +10,25 @@ void testApp::setup() {
 	ofSetLogLevel(OF_LOG_NOTICE);
     
     // load the textures
-    if (!Creature::overlay.loadImage("eyea.png")) cout << "Error loading Creature texture" << endl;
-    if (!FroBall::overlay.loadImage("particle.png")) cout << "Error loading FroBall texture" << endl;
+    if (!HairBall::tex.loadImage("particle.png")) {
+        cout << "Error loading HairBall texture" << endl;
+    }
     
     srcBlend = GL_SRC_ALPHA;
     dstBlend = GL_ONE;
     
     // init the physics world
     world = physics.getWorld();
-    physics.setGravity(b2Vec2(0, -8));
+    physics.setGravityB2(b2Vec2(0, -9.8));
     physics.createBounds(0, 0, ofGetWidth(), ofGetHeight());
     
-    // build the FroBalls
-    numFroBalls = 40;
-    for (int i = 0; i < numFroBalls; i++) {
-        froBalls[i] = new FroBall(i, world, PIX2M(ofRandom(10, ofGetWidth() - 10)), PIX2M(ofRandom(10, ofGetHeight() - 10)));
-	}
+    // build the HairBalls
+    numHairBalls = 40;
+    for (int i = 0; i < numHairBalls; i++) {
+        hairBalls[i] = new HairBall(world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), ofRandom(HairBall::s_minRadius, HairBall::s_maxRadius));
+    }
     
-    creatures.push_back(new Creature(0, world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), 50));
+    persons.push_back(new Person(world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), ofRandom(Person::s_minRadius, Person::s_maxRadius)));
     
     // init the face tracker
     capture.initGrabber(kCaptureWidth, kCaptureHeight);
@@ -54,7 +55,7 @@ void testApp::update() {
             face = faceTracker.blobs[0].boundingRect;
             face.width = face.height = MIN(face.width, face.height);
             //colorIn.setROI(face);
-            creatures[0]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .5f * kCaptureScale);
+            //persons[0]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .5f * kCaptureScale);
         }
         
 //        for (int i = 0; i < faceTracker.blobs.size(); i++) {
@@ -64,15 +65,10 @@ void testApp::update() {
     }
     
     // go through all the FroBalls
-    for (int i = 0; i < numFroBalls; i++) { 
-        // go through all the Creatures
-        for (int j = 0; j < creatures.size(); j++) {
-            b2Vec2  acc = creatures[j]->pos() - froBalls[i]->pos();
-            float32 dst = acc.Normalize();
-            if (dst < creatures[j]->range) {
-                // attract the FroBall
-                froBalls[i]->applyForce(creatures[j]->strength * acc);
-            }
+    for (int i = 0; i < numHairBalls; i++) { 
+        // go through all the Persons
+        for (int j = 0; j < persons.size(); j++) {
+            persons[j]->attract(hairBalls[i]);
         }
     }
 }
@@ -81,42 +77,47 @@ void testApp::update() {
 void testApp::draw() {
     ofBackground(255, 255, 255);
     
-    ofSetColor(255, 255, 255);
-    
-    glEnable(GL_BLEND);
-    glBlendFunc(BLEND_MODES[srcBlend], BLEND_MODES[dstBlend]);
-    
-    colorIn.draw(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), ofGetHeight());
-	
-//    if (faceTracker.blobs.size() > 0) {
-//        colorIn.drawROI(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale, face.height * kCaptureScale);
-//    }
-    
-    
-    // draw all the FroBalls
-    ofSetColor(255, 255, 255);
-    for (int i = 0; i < numFroBalls; i++) {
-        froBalls[i]->draw();
+    if (debug) {
+        physics.debug();
+    } else {
+        ofSetColor(255, 255, 255);
+        
+        glEnable(GL_BLEND);
+        glBlendFunc(BLEND_MODES[srcBlend], BLEND_MODES[dstBlend]);
+        
+        colorIn.draw(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), ofGetHeight());
+        
+        //    if (faceTracker.blobs.size() > 0) {
+        //        colorIn.drawROI(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale, face.height * kCaptureScale);
+        //    }
+        
+        ofCircle(persons[0]->getPosition().x, persons[0]->getPosition().y, persons[0]->getRadius());
+        
+        // draw all the FroBalls
+        ofSetColor(255, 255, 255);
+        for (int i = 0; i < numHairBalls; i++) {
+            hairBalls[i]->draw();
+        }
+        
+        glDisable(GL_BLEND);
+        ofEnableAlphaBlending();
+        
+        // draw the creatures
+        //    for (int i = 0; i < creatures.size(); i++) {
+        //        creatures[i]->draw();
+        //    }
+        
+        //    for (int i = 0; i < faceTracker.blobs.size(); i++) {
+        //        ofRectangle face = faceTracker.blobs[i].boundingRect;
+        //        ofEllipse(face.getCenter().x, face.getCenter().y, face.width, face.height);
+        //    }
     }
-    
-    glDisable(GL_BLEND);
-	ofEnableAlphaBlending();
-	
-    // draw the creatures
-//    for (int i = 0; i < creatures.size(); i++) {
-//        creatures[i]->draw();
-//    }
-    
-//    for (int i = 0; i < faceTracker.blobs.size(); i++) {
-//        ofRectangle face = faceTracker.blobs[i].boundingRect;
-//        ofEllipse(face.getCenter().x, face.getCenter().y, face.width, face.height);
-//    }
     
     if (info) {
         ofSetColor(255, 255, 255);
         ofDrawBitmapString("FPS: " + ofToString(ofGetFrameRate(), 2) + 
-                           "\nCREATURES: " + ofToString((int)creatures.size()) + 
-                           "\nFROBALLS: " + ofToString(numFroBalls), 10, 20);        
+                           "\nPERSONS: " + ofToString((int)persons.size()) + 
+                           "\nHAIRBALLS: " + ofToString(numHairBalls), 10, 20);        
     }
 }
 
@@ -152,6 +153,7 @@ void testApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y) {
+    persons[0]->update(x, y, 100);
 }
 
 //--------------------------------------------------------------

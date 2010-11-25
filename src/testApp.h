@@ -4,15 +4,16 @@
 #include "mtlBox2d.h"
 #include "ofxCvHaarFinder.h"
 
-#include "FroBall.h"
-#include "Creature.h"
+#include "HairBall.h"
+#include "Person.h"
 
-#define kCaptureWidth    320
-#define kCaptureHeight   240
-#define kCaptureScale      2
+#define kCaptureWidth     320
+#define kCaptureHeight    240
+#define kCaptureScale       2
 
-#define kMaxFroBalls    1024
-#define kNumBlendModes    10
+#define kMaxHairBalls    1024
+
+#define kNumBlendModes     10
 
 //========================================================================
 const GLenum BLEND_MODES[] = { 
@@ -46,10 +47,10 @@ class testApp : public ofBaseApp {
         mtlBox2d            physics;
         b2World*            world;
         
-        vector<Creature*>   creatures;
+        vector<Person*>     persons;
     
-        int                 numFroBalls; 
-        FroBall*            froBalls[kMaxFroBalls];
+        int                 numHairBalls; 
+        HairBall*           hairBalls[kMaxHairBalls];
         
         bool                white;
         int                 srcBlend;

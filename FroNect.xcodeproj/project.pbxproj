@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		270999841295D95700C30677 /* Creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270999831295D95700C30677 /* Creature.cpp */; };
-		270999EF1296D4B200C30677 /* FroBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 270999EE1296D4B200C30677 /* FroBall.cpp */; };
 		27099C1312970C8000C30677 /* ofxEasing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099BF912970C8000C30677 /* ofxEasing.cpp */; };
 		27099C1412970C8000C30677 /* ofxEasingBack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099BFB12970C8000C30677 /* ofxEasingBack.cpp */; };
 		27099C1512970C8000C30677 /* ofxEasingBounce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099BFD12970C8000C30677 /* ofxEasingBounce.cpp */; };
@@ -58,7 +56,6 @@
 		27099E0212972AF300C30677 /* ofxMatrix3x3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099DF412972AF300C30677 /* ofxMatrix3x3.cpp */; };
 		27099E0312972AF300C30677 /* ofxMatrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099DF612972AF300C30677 /* ofxMatrix4x4.cpp */; };
 		27099E0412972AF300C30677 /* ofxQuaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27099DFB12972AF300C30677 /* ofxQuaternion.cpp */; };
-		2709A0C7129743C700C30677 /* mtlBox2dParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2709A0C6129743C700C30677 /* mtlBox2dParticle.cpp */; };
 		277556C61292F39D00249A43 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 277556A31292F39D00249A43 /* testApp.cpp */; };
 		277556C71292F39D00249A43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 277556A41292F39D00249A43 /* main.cpp */; };
 		279F9555129ECC8F0019AE3A /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F94FE129ECC8F0019AE3A /* b2BroadPhase.cpp */; };
@@ -101,6 +98,8 @@
 		279F957A129ECC8F0019AE3A /* mtlBox2dBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F954E129ECC8F0019AE3A /* mtlBox2dBox.cpp */; };
 		279F957B129ECC8F0019AE3A /* mtlBox2dCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F9550129ECC8F0019AE3A /* mtlBox2dCircle.cpp */; };
 		279F957C129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F9552129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp */; };
+		279F9593129ED55A0019AE3A /* HairBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F9592129ED55A0019AE3A /* HairBall.cpp */; };
+		279F95AE129EDABD0019AE3A /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F95AD129EDABD0019AE3A /* Person.cpp */; };
 		E45BE0AA0E8CC67C009D7055 /* GLee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE0A90E8CC67C009D7055 /* GLee.a */; };
 		E45BE2E40E8CC69C009D7055 /* rtAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE2E30E8CC69C009D7055 /* rtAudio.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -170,10 +169,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		270999821295D95700C30677 /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = src/Creature.h; sourceTree = SOURCE_ROOT; };
-		270999831295D95700C30677 /* Creature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Creature.cpp; path = src/Creature.cpp; sourceTree = SOURCE_ROOT; };
-		270999ED1296D4B200C30677 /* FroBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FroBall.h; sourceTree = "<group>"; };
-		270999EE1296D4B200C30677 /* FroBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FroBall.cpp; sourceTree = "<group>"; };
 		27099BF512970C8000C30677 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../extraAddons/ofxTween/LICENSE; sourceTree = SOURCE_ROOT; };
 		27099BF812970C8000C30677 /* easing_terms_of_use.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = easing_terms_of_use.html; path = ../../../extraAddons/ofxTween/src/Easings/easing_terms_of_use.html; sourceTree = SOURCE_ROOT; };
 		27099BF912970C8000C30677 /* ofxEasing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxEasing.cpp; path = ../../../extraAddons/ofxTween/src/Easings/ofxEasing.cpp; sourceTree = SOURCE_ROOT; };
@@ -280,8 +275,6 @@
 		27099DFE12972AF300C30677 /* ofxVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxVec3f.h; path = ../../../addons/ofxVectorMath/src/ofxVec3f.h; sourceTree = SOURCE_ROOT; };
 		27099DFF12972AF300C30677 /* ofxVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxVec4f.h; path = ../../../addons/ofxVectorMath/src/ofxVec4f.h; sourceTree = SOURCE_ROOT; };
 		27099E0012972AF300C30677 /* ofxVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxVectorMath.h; path = ../../../addons/ofxVectorMath/src/ofxVectorMath.h; sourceTree = SOURCE_ROOT; };
-		2709A0C5129743C700C30677 /* mtlBox2dParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtlBox2dParticle.h; sourceTree = "<group>"; };
-		2709A0C6129743C700C30677 /* mtlBox2dParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtlBox2dParticle.cpp; sourceTree = "<group>"; };
 		277556A21292F39D00249A43 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
 		277556A31292F39D00249A43 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		277556A41292F39D00249A43 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -367,6 +360,10 @@
 		279F9552129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mtlBox2dDebugDraw.cpp; sourceTree = "<group>"; };
 		279F9553129ECC8F0019AE3A /* mtlBox2dDebugDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtlBox2dDebugDraw.h; sourceTree = "<group>"; };
 		279F9554129ECC8F0019AE3A /* mtlBox2dHitTestCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtlBox2dHitTestCallback.h; sourceTree = "<group>"; };
+		279F9591129ED55A0019AE3A /* HairBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HairBall.h; sourceTree = "<group>"; };
+		279F9592129ED55A0019AE3A /* HairBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HairBall.cpp; sourceTree = "<group>"; };
+		279F95AC129EDABD0019AE3A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		279F95AD129EDABD0019AE3A /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
 		E45BE0390E8CC647009D7055 /* FreeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreeImage.h; path = ../../../libs/freeimage/include/FreeImage.h; sourceTree = SOURCE_ROOT; };
 		E45BE03F0E8CC650009D7055 /* fmod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmod.h; path = ../../../libs/fmodex/include/fmod.h; sourceTree = SOURCE_ROOT; };
 		E45BE0400E8CC650009D7055 /* fmod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = fmod.hpp; path = ../../../libs/fmodex/include/fmod.hpp; sourceTree = SOURCE_ROOT; };
@@ -1134,12 +1131,10 @@
 				277556A41292F39D00249A43 /* main.cpp */,
 				277556A21292F39D00249A43 /* testApp.h */,
 				277556A31292F39D00249A43 /* testApp.cpp */,
-				270999821295D95700C30677 /* Creature.h */,
-				270999831295D95700C30677 /* Creature.cpp */,
-				270999ED1296D4B200C30677 /* FroBall.h */,
-				270999EE1296D4B200C30677 /* FroBall.cpp */,
-				2709A0C5129743C700C30677 /* mtlBox2dParticle.h */,
-				2709A0C6129743C700C30677 /* mtlBox2dParticle.cpp */,
+				279F9591129ED55A0019AE3A /* HairBall.h */,
+				279F9592129ED55A0019AE3A /* HairBall.cpp */,
+				279F95AC129EDABD0019AE3A /* Person.h */,
+				279F95AD129EDABD0019AE3A /* Person.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1314,8 +1309,6 @@
 			files = (
 				277556C61292F39D00249A43 /* testApp.cpp in Sources */,
 				277556C71292F39D00249A43 /* main.cpp in Sources */,
-				270999841295D95700C30677 /* Creature.cpp in Sources */,
-				270999EF1296D4B200C30677 /* FroBall.cpp in Sources */,
 				27099C1312970C8000C30677 /* ofxEasing.cpp in Sources */,
 				27099C1412970C8000C30677 /* ofxEasingBack.cpp in Sources */,
 				27099C1512970C8000C30677 /* ofxEasingBounce.cpp in Sources */,
@@ -1340,7 +1333,6 @@
 				27099E0212972AF300C30677 /* ofxMatrix3x3.cpp in Sources */,
 				27099E0312972AF300C30677 /* ofxMatrix4x4.cpp in Sources */,
 				27099E0412972AF300C30677 /* ofxQuaternion.cpp in Sources */,
-				2709A0C7129743C700C30677 /* mtlBox2dParticle.cpp in Sources */,
 				279F9555129ECC8F0019AE3A /* b2BroadPhase.cpp in Sources */,
 				279F9556129ECC8F0019AE3A /* b2CollideCircle.cpp in Sources */,
 				279F9557129ECC8F0019AE3A /* b2CollidePolygon.cpp in Sources */,
@@ -1381,6 +1373,8 @@
 				279F957A129ECC8F0019AE3A /* mtlBox2dBox.cpp in Sources */,
 				279F957B129ECC8F0019AE3A /* mtlBox2dCircle.cpp in Sources */,
 				279F957C129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp in Sources */,
+				279F9593129ED55A0019AE3A /* HairBall.cpp in Sources */,
+				279F95AE129EDABD0019AE3A /* Person.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
