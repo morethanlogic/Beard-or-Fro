@@ -18,11 +18,11 @@ void testApp::setup() {
     
     // init the physics world
     world = physics.getWorld();
-    physics.setGravity(b2Vec2(0, -10));
+    physics.setGravity(b2Vec2(0, -8));
     physics.createBounds(0, 0, ofGetWidth(), ofGetHeight());
     
     // build the FroBalls
-    numFroBalls = 300;
+    numFroBalls = 40;
     for (int i = 0; i < numFroBalls; i++) {
         froBalls[i] = new FroBall(i, world, PIX2M(ofRandom(10, ofGetWidth() - 10)), PIX2M(ofRandom(10, ofGetHeight() - 10)));
 	}
@@ -52,9 +52,9 @@ void testApp::update() {
         
         if (faceTracker.blobs.size() > 0) {
             face = faceTracker.blobs[0].boundingRect;
-            face.width = face.height = MAX(face.width, face.height);
-            colorIn.setROI(face);
-            creatures[0]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale);
+            face.width = face.height = MIN(face.width, face.height);
+            //colorIn.setROI(face);
+            creatures[0]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .5f * kCaptureScale);
         }
         
 //        for (int i = 0; i < faceTracker.blobs.size(); i++) {
@@ -82,13 +82,19 @@ void testApp::draw() {
     ofBackground(255, 255, 255);
     
     ofSetColor(255, 255, 255);
-    colorIn.drawROI(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale, face.height * kCaptureScale);
     
     glEnable(GL_BLEND);
     glBlendFunc(BLEND_MODES[srcBlend], BLEND_MODES[dstBlend]);
+    
+    colorIn.draw(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth(), ofGetHeight());
 	
+//    if (faceTracker.blobs.size() > 0) {
+//        colorIn.drawROI(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale, face.height * kCaptureScale);
+//    }
+    
+    
     // draw all the FroBalls
-    ofSetColor(0, 0, 0);
+    ofSetColor(255, 255, 255);
     for (int i = 0; i < numFroBalls; i++) {
         froBalls[i]->draw();
     }

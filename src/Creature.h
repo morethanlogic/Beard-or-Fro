@@ -37,11 +37,7 @@ class Creature {
         
         b2World         *world;
         b2Body          *body;
-        b2Fixture       *fixture;
     
-        b2CircleShape   cs;
-        b2FixtureDef    fd;
-        
         int             id;
         float           radius;
         ofColor         col;

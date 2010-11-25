@@ -26,14 +26,16 @@ Creature::Creature(int _id, b2World* _world, float _x, float _y, float _radius) 
     
     // add collision shapes to that body
     radius = _radius;
-    cs.m_radius = PIX2M(radius);
+    b2CircleShape m_circle;
+    m_circle.m_radius = PIX2M(radius);
     
-    fd.shape       = &cs;
+    b2FixtureDef fd;
+    fd.shape       = &m_circle;
     fd.density     = 0;
     fd.friction    = .1f;
     fd.restitution = .1f;
     
-    fixture = body->CreateFixture(&fd);
+    body->CreateFixture(&fd);
     
     // set attraction parameters
     range    = PIX2M(ofMap(radius, kMinCreatureRadius, kMaxCreatureRadius, kMinCreatureRange, kMaxCreatureRange));
@@ -59,7 +61,33 @@ Creature::~Creature() {
 
 //--------------------------------------------------------------
 void Creature::update(float _x, float _y, float _radius) {
-    body->SetTransform(b2Vec2(PIX2M(_x), PIX2M(_y)), 0);
+    world->DestroyBody(body);
+    
+    // create a body and add it to the world
+    b2BodyDef bd;
+    bd.type = b2_staticBody;
+    bd.position.Set(PIX2M(_x), PIX2M(_y));
+    bd.angle = 0;
+    
+    body = world->CreateBody(&bd);
+    
+    // add collision shapes to that body
+    radius = _radius;
+    b2CircleShape m_circle;
+    m_circle.m_radius = PIX2M(radius);
+    
+    b2FixtureDef fd;
+    fd.shape       = &m_circle;
+    fd.density     = 0;
+    fd.friction    = .1f;
+    fd.restitution = .1f;
+    
+    body->CreateFixture(&fd);
+    
+    // set attraction parameters
+    range    = PIX2M(ofMap(radius, kMinCreatureRadius, kMaxCreatureRadius, kMinCreatureRange, kMaxCreatureRange));
+    strength = PIX2M(radius * kCreatureStrength);
+    
     
 //    body->DestroyFixture(fixture);
 //    

@@ -61,7 +61,7 @@ void FroBall::applyForce(const b2Vec2& _force) {
 //--------------------------------------------------------------
 void FroBall::draw() {
     // draw them twice as big as they actually are
-    overlay.draw(M2PIX(pos().x), M2PIX(pos().y), radius*4, radius*4);
+    overlay.draw(M2PIX(pos().x), M2PIX(pos().y), radius*5, radius*5);
 }
 
 //--------------------------------------------------------------
