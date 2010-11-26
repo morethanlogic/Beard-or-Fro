@@ -16,7 +16,7 @@ int Person::s_minRadius         =  30;
 int Person::s_maxRadius         =  60;
 int Person::s_minRange          = 100;
 int Person::s_maxRange          = 600;
-int Person::s_strengthScalar    =  10;
+int Person::s_strengthScalar    =   7;
 
 //--------------------------------------------------------------
 Person::Person(b2World* _world, float _x, float _y, float _radius) {
