@@ -30,7 +30,7 @@ void testApp::setup() {
         hairBalls[i] = new HairBall(world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), ofRandom(HairBall::s_minRadius, HairBall::s_maxRadius));
     }
     
-    persons.push_back(new Person(world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), ofRandom(Person::s_minRadius, Person::s_maxRadius)));
+    //persons.push_back(new Person(world, ofRandom(10, ofGetWidth() - 10), ofRandom(10, ofGetHeight() - 10), ofRandom(Person::s_minRadius, Person::s_maxRadius)));
     
     // init the face tracker
     capture.initGrabber(kCaptureWidth, kCaptureHeight);
@@ -75,17 +75,34 @@ void testApp::update() {
         grayIn = colorIn;
         faceTracker.findHaarObjects(grayIn);
         
-        if (faceTracker.blobs.size() > 0) {
-            face = faceTracker.blobs[0].boundingRect;
-            face.width = face.height = MIN(face.width, face.height);
-            //colorIn.setROI(face);
-            //persons[0]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .5f * kCaptureScale);
+        // create as many Persons as faces
+        int upTo = 0;
+        if (faceTracker.blobs.size() > persons.size()) {
+            // add new Persons
+            upTo = persons.size();
+            for (int i = upTo; i < faceTracker.blobs.size(); i++) {
+                face = faceTracker.blobs[i].boundingRect;
+                face.width = face.height = MIN(face.width, face.height);
+                persons.push_back(new Person(world, face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .4f * kCaptureScale));
+            }
+        } else if (faceTracker.blobs.size() < persons.size()) {
+            // remove dead Persons
+            while (faceTracker.blobs.size() < persons.size()) {
+                Person* p = persons.back();
+                delete p;
+                persons.pop_back();
+            }
+            upTo = persons.size();
+        } else {
+            upTo = persons.size();
         }
         
-//        for (int i = 0; i < faceTracker.blobs.size(); i++) {
-//            ofRectangle face = faceTracker.blobs[i].boundingRect;
-//            ofEllipse(face.getCenter().x, face.getCenter().y, face.width, face.height);
-//        }
+        // update old Persons
+        for (int i=0; i < upTo; i++) {
+            face = faceTracker.blobs[i].boundingRect;
+            face.width = face.height = MIN(face.width, face.height);
+            persons[i]->update(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * .4f * kCaptureScale);
+        }
     }
     
     // go through all the HairBalls
@@ -115,7 +132,7 @@ void testApp::draw() {
         //        colorIn.drawROI(face.getCenter().x * kCaptureScale, face.getCenter().y * kCaptureScale, face.width * kCaptureScale, face.height * kCaptureScale);
         //    }
         
-        ofCircle(persons[0]->getPosition().x, persons[0]->getPosition().y, persons[0]->getRadius());
+        //ofCircle(persons[0]->getPosition().x, persons[0]->getPosition().y, persons[0]->getRadius());
         
         // draw all the HairBalls
         ofSetColor(HairBall::s_tint, HairBall::s_tint, HairBall::s_tint);
@@ -127,6 +144,11 @@ void testApp::draw() {
         ofEnableAlphaBlending();
         
         // draw the Persons
+//        ofNoFill();
+//        for (int i=0; i < persons.size(); i++) {
+//            ofCircle(persons[i]->getPosition().x, persons[i]->getPosition().y, persons[i]->getRadius());
+//        }
+//        ofFill();
         //    for (int i = 0; i < creatures.size(); i++) {
         //        creatures[i]->draw();
         //    }
@@ -195,7 +217,7 @@ void testApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y) {
-    persons[0]->update(x, y, 100);
+    //persons[0]->update(x, y, 100);
 }
 
 //--------------------------------------------------------------
