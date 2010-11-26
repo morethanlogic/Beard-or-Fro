@@ -40,6 +40,22 @@ void testApp::setup() {
     
     debug = false;
     info  = false;
+    
+//    tweaks.init("Tweaks", 200, 400, 200, 200, 200, 100);
+//	tweaks.enable();
+//    
+//    tweaks.addSeparator("Person");
+//	tweaks.addParam("Radius Threshold", &Person::s_radiusThreshold, " min=0   max=10   step=1 ");
+//	tweaks.addParam("Min Radius",       &Person::s_minRadius,       " min=10  max=50   step=1 ");
+//	tweaks.addParam("Max Radius",       &Person::s_maxRadius,       " min=50  max=150  step=1 ");
+//	tweaks.addParam("Min Range",        &Person::s_minRange,        " min=0   max=200  step=1 ");
+//	tweaks.addParam("Max Range",        &Person::s_maxRange,        " min=300 max=800  step=1 ");
+//	tweaks.addParam("Strength Scalar",  &Person::s_strengthScalar,  " min=1   max=20   step=1 ");
+//    
+//    tweaks.addSeparator("HairBall");
+//	tweaks.addParam("Min Radius",       &Person::s_minRadius,       " min=1   max=20   step=1 ");
+//	tweaks.addParam("Max Radius",       &Person::s_maxRadius,       " min=20  max=50   step=1 ");
+//	tweaks.addParam("Draw Scale",       &Person::s_minRange,        " min=0.5 max=5.0  step=0.5 ");   
 }
 
 //--------------------------------------------------------------
@@ -127,6 +143,9 @@ void testApp::draw() {
                            "\nPERSONS: " + ofToString((int)persons.size()) + 
                            "\nHAIRBALLS: " + ofToString(numHairBalls), 10, 20);        
     }
+//    
+//    tweaks.draw();
+}
 
 //--------------------------------------------------------------
 void testApp::toggleHairOrBeard() {

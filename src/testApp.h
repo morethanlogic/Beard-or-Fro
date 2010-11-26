@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "mtlBox2d.h"
+//#include "mtlTwBar.h"
 #include "ofxCvHaarFinder.h"
 
 #include "HairBall.h"
@@ -68,5 +69,6 @@ class testApp : public ofBaseApp {
     
         bool                debug;
         bool                info;
+        //mtlTwBar            tweaks;
 		
 };

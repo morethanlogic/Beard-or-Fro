@@ -100,6 +100,8 @@
 		279F957C129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F9552129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp */; };
 		279F9593129ED55A0019AE3A /* HairBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F9592129ED55A0019AE3A /* HairBall.cpp */; };
 		279F95AE129EDABD0019AE3A /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F95AD129EDABD0019AE3A /* Person.cpp */; };
+		279F9613129EE4030019AE3A /* libAntTweakBar.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279F9609129EE4030019AE3A /* libAntTweakBar.dylib */; };
+		279F9615129EE4030019AE3A /* mtlTwBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279F960F129EE4030019AE3A /* mtlTwBar.cpp */; };
 		E45BE0AA0E8CC67C009D7055 /* GLee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE0A90E8CC67C009D7055 /* GLee.a */; };
 		E45BE2E40E8CC69C009D7055 /* rtAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE2E30E8CC69C009D7055 /* rtAudio.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -364,6 +366,10 @@
 		279F9592129ED55A0019AE3A /* HairBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HairBall.cpp; sourceTree = "<group>"; };
 		279F95AC129EDABD0019AE3A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		279F95AD129EDABD0019AE3A /* Person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Person.cpp; sourceTree = "<group>"; };
+		279F9603129EE4030019AE3A /* AntTweakBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AntTweakBar.h; path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/include/AntTweakBar.h; sourceTree = SOURCE_ROOT; };
+		279F9609129EE4030019AE3A /* libAntTweakBar.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libAntTweakBar.dylib; path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx/libAntTweakBar.dylib; sourceTree = SOURCE_ROOT; };
+		279F960F129EE4030019AE3A /* mtlTwBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mtlTwBar.cpp; path = ../../../mtlAddons/mtlTwBar/src/mtlTwBar.cpp; sourceTree = SOURCE_ROOT; };
+		279F9610129EE4030019AE3A /* mtlTwBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mtlTwBar.h; path = ../../../mtlAddons/mtlTwBar/src/mtlTwBar.h; sourceTree = SOURCE_ROOT; };
 		E45BE0390E8CC647009D7055 /* FreeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FreeImage.h; path = ../../../libs/freeimage/include/FreeImage.h; sourceTree = SOURCE_ROOT; };
 		E45BE03F0E8CC650009D7055 /* fmod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmod.h; path = ../../../libs/fmodex/include/fmod.h; sourceTree = SOURCE_ROOT; };
 		E45BE0400E8CC650009D7055 /* fmod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = fmod.hpp; path = ../../../libs/fmodex/include/fmod.hpp; sourceTree = SOURCE_ROOT; };
@@ -456,6 +462,7 @@
 				27099C8612970D7F00C30677 /* libcv.a in Frameworks */,
 				27099C8712970D7F00C30677 /* libcvaux.a in Frameworks */,
 				27099C8812970D7F00C30677 /* libcxcore.a in Frameworks */,
+				279F9613129EE4030019AE3A /* libAntTweakBar.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,10 +930,77 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		279F95F6129EE4030019AE3A /* mtlTwBar */ = {
+			isa = PBXGroup;
+			children = (
+				279F9600129EE4030019AE3A /* libs */,
+				279F960E129EE4030019AE3A /* src */,
+			);
+			name = mtlTwBar;
+			path = ../../../mtlAddons/mtlTwBar;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F9600129EE4030019AE3A /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				279F9601129EE4030019AE3A /* AntTweakBar */,
+			);
+			name = libs;
+			path = ../../../mtlAddons/mtlTwBar/libs;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F9601129EE4030019AE3A /* AntTweakBar */ = {
+			isa = PBXGroup;
+			children = (
+				279F9602129EE4030019AE3A /* include */,
+				279F9604129EE4030019AE3A /* lib */,
+			);
+			name = AntTweakBar;
+			path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F9602129EE4030019AE3A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				279F9603129EE4030019AE3A /* AntTweakBar.h */,
+			);
+			name = include;
+			path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/include;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F9604129EE4030019AE3A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				279F9608129EE4030019AE3A /* osx */,
+			);
+			name = lib;
+			path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F9608129EE4030019AE3A /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				279F9609129EE4030019AE3A /* libAntTweakBar.dylib */,
+			);
+			name = osx;
+			path = ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx;
+			sourceTree = SOURCE_ROOT;
+		};
+		279F960E129EE4030019AE3A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				279F960F129EE4030019AE3A /* mtlTwBar.cpp */,
+				279F9610129EE4030019AE3A /* mtlTwBar.h */,
+			);
+			name = src;
+			path = ../../../mtlAddons/mtlTwBar/src;
+			sourceTree = SOURCE_ROOT;
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
 				279F94F9129ECC8F0019AE3A /* mtlBox2d */,
+				279F95F6129EE4030019AE3A /* mtlTwBar */,
 				27099C8F12970E1F00C30677 /* ofxCvHaarFinder */,
 				27099C2612970D7E00C30677 /* ofxOpenCv */,
 				27099DEA12972AF300C30677 /* ofxThread */,
@@ -1298,7 +1372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"\ninstall_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\" ";
+			shellScript = "cp -f ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"\ninstall_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\"\ncp -f ../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx/libAntTweakBar.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libAntTweakBar.dylib\"\ninstall_name_tool -change ./libAntTweakBar.dylib @executable_path/libAntTweakBar.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\"  ";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1375,6 +1449,7 @@
 				279F957C129ECC8F0019AE3A /* mtlBox2dDebugDraw.cpp in Sources */,
 				279F9593129ED55A0019AE3A /* HairBall.cpp in Sources */,
 				279F95AE129EDABD0019AE3A /* Person.cpp in Sources */,
+				279F9615129EE4030019AE3A /* mtlTwBar.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1472,6 +1547,8 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_7)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_8)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/arm\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/linux\"";
@@ -1490,6 +1567,8 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/win\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Universal";
 				SDKROOT = "";
@@ -1614,6 +1693,8 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_7)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_8)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_9)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/arm\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/linux\"";
@@ -1632,6 +1713,8 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../libs/poco/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../libs/rtAudio/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/win\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				SDKROOT = "";
@@ -1692,6 +1775,8 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_12)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_13)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/freeimage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_10 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/vs2008\"";
@@ -1701,6 +1786,8 @@
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_14 = "\"$(SRCROOT)/../../../libs/fmodex/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_15 = "\"$(SRCROOT)/../../../libs/freetype/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_16 = "\"$(SRCROOT)/src/ofxKinect/libs/libusb/osx/libs\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_17 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/osx\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_18 = "\"$(SRCROOT)/../../../mtlAddons/mtlTwBar/libs/AntTweakBar/lib/win\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../libs/FreeImage/lib/osx\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../../addons/ofxOpenCv/libs/opencv/lib/arm\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../libs/GLee/lib/osx\"";
