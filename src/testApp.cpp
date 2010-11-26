@@ -10,7 +10,7 @@ void testApp::setup() {
 	ofSetLogLevel(OF_LOG_NOTICE);
     
     // load the textures
-    if (!HairBall::tex.loadImage("particle.png")) {
+    if (!HairBall::s_tex.loadImage("hair.png")) {
         cout << "Error loading HairBall texture" << endl;
     }
     
@@ -88,7 +88,7 @@ void testApp::update() {
 //        }
     }
     
-    // go through all the FroBalls
+    // go through all the HairBalls
     for (int i = 0; i < numHairBalls; i++) { 
         // go through all the Persons
         for (int j = 0; j < persons.size(); j++) {
@@ -126,7 +126,7 @@ void testApp::draw() {
         glDisable(GL_BLEND);
         ofEnableAlphaBlending();
         
-        // draw the creatures
+        // draw the Persons
         //    for (int i = 0; i < creatures.size(); i++) {
         //        creatures[i]->draw();
         //    }

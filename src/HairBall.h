@@ -20,7 +20,7 @@ public:
     void    draw();
     void    applyForce(const b2Vec2& _force);
     
-    static  ofImage tex;
+    static  ofImage s_tex;
     static  float   s_tint;
     
     static  int     s_minRadius;

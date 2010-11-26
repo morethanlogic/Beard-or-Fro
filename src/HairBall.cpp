@@ -10,12 +10,12 @@
 #include "HairBall.h"
 
 //--------------------------------------------------------------
-ofImage HairBall::tex;
+ofImage HairBall::s_tex;
 float   HairBall::s_tint        = 255;
 
-int     HairBall::s_minRadius   =   10;
-int     HairBall::s_maxRadius   =   30;
-float   HairBall::s_drawScale   =    3.f;
+int     HairBall::s_minRadius   =  10;
+int     HairBall::s_maxRadius   =  30;
+float   HairBall::s_drawScale   =   4.f;
 
 //--------------------------------------------------------------
 HairBall::HairBall(b2World* _world, float _x, float _y, float _radius) {
@@ -25,7 +25,7 @@ HairBall::HairBall(b2World* _world, float _x, float _y, float _radius) {
 //--------------------------------------------------------------
 void HairBall::draw() {
     pos = getPosition();
-    tex.draw(pos.x, pos.y, radius*s_drawScale, radius*s_drawScale);
+    s_tex.draw(pos.x, pos.y, radius*s_drawScale, radius*s_drawScale);
 }
 
 //--------------------------------------------------------------
