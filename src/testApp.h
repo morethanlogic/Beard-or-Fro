@@ -44,8 +44,12 @@ class testApp : public ofBaseApp {
 		void                mousePressed(int x, int y, int button);
 		void                mouseReleased();
     
+        void                toggleHairOrBeard();
+    
         mtlBox2d            physics;
         b2World*            world;
+
+        bool                doHair;
         
         vector<Person*>     persons;
     

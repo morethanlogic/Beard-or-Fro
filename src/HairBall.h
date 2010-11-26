@@ -21,6 +21,7 @@ public:
     void    applyForce(const b2Vec2& _force);
     
     static  ofImage tex;
+    static  float   s_tint;
     
     static  int     s_minRadius;
     static  int     s_maxRadius;

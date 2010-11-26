@@ -19,8 +19,10 @@ void testApp::setup() {
     
     // init the physics world
     world = physics.getWorld();
-    physics.setGravityB2(b2Vec2(0, -9.8));
     physics.createBounds(0, 0, ofGetWidth(), ofGetHeight());
+    
+    doHair = true;
+    toggleHairOrBeard();
     
     // build the HairBalls
     numHairBalls = 40;
@@ -43,6 +45,12 @@ void testApp::setup() {
 //--------------------------------------------------------------
 void testApp::update() {
     physics.update();
+    
+    if (doHair && HairBall::s_tint > 0) {
+        HairBall::s_tint = ofLerp(HairBall::s_tint, 0, .1f);
+    } else if (!doHair && HairBall::s_tint < 255) {
+        HairBall::s_tint = ofLerp(HairBall::s_tint, 255, .1f);
+    }
     
     capture.grabFrame();
     if (capture.isFrameNew()) {
@@ -93,8 +101,8 @@ void testApp::draw() {
         
         ofCircle(persons[0]->getPosition().x, persons[0]->getPosition().y, persons[0]->getRadius());
         
-        // draw all the FroBalls
-        ofSetColor(255, 255, 255);
+        // draw all the HairBalls
+        ofSetColor(HairBall::s_tint, HairBall::s_tint, HairBall::s_tint);
         for (int i = 0; i < numHairBalls; i++) {
             hairBalls[i]->draw();
         }
@@ -119,6 +127,17 @@ void testApp::draw() {
                            "\nPERSONS: " + ofToString((int)persons.size()) + 
                            "\nHAIRBALLS: " + ofToString(numHairBalls), 10, 20);        
     }
+
+//--------------------------------------------------------------
+void testApp::toggleHairOrBeard() {
+    doHair = !doHair;
+    if (doHair) {
+        // gravity up
+        physics.setGravityB2(b2Vec2(0, -300));
+    } else {
+        // gravity down
+        physics.setGravityB2(b2Vec2(0, 300));
+    }
 }
 
 //--------------------------------------------------------------
@@ -129,6 +148,10 @@ void testApp::keyPressed(int key) {
             break;
         case 'i':
             info = !info;
+            break;
+            
+        case ' ':
+            toggleHairOrBeard();
             break;
             
         case OF_KEY_UP:

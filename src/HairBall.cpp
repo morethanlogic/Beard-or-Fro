@@ -11,6 +11,7 @@
 
 //--------------------------------------------------------------
 ofImage HairBall::tex;
+float   HairBall::s_tint        = 255;
 
 int     HairBall::s_minRadius   =   10;
 int     HairBall::s_maxRadius   =   30;
