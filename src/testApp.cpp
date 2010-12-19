@@ -8,6 +8,9 @@ void testApp::setup() {
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofSetBackgroundAuto(false);
 	ofSetLogLevel(OF_LOG_NOTICE);
+#ifdef TARGET_OSX
+    ofSetDataPathRoot("../Resources/");
+#endif
     
     // load the textures
     if (!HairBall::s_tex.loadImage("hair.png")) {
