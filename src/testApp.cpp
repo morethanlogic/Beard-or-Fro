@@ -8,6 +8,7 @@ void testApp::setup() {
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofSetBackgroundAuto(false);
 	ofSetLogLevel(OF_LOG_NOTICE);
+    ofSetWindowTitle("Beard or Fro");
 #ifdef TARGET_OSX
     ofSetDataPathRoot("../Resources/");
 #endif
