@@ -41,7 +41,8 @@ void testApp::setup() {
     faceTracker.setup("haarcascade_frontalface_default.xml");
     
     debug = false;
-    info  = false; 
+    info  = false;
+    titleIndex = 0;
 }
 
 //--------------------------------------------------------------
@@ -96,6 +97,18 @@ void testApp::update() {
         // go through all the Persons
         for (int j = 0; j < persons.size(); j++) {
             persons[j]->attract(hairBalls[i]);
+        }
+    }
+    
+    // update the window title every 2 seconds
+    if (ofGetFrameNum()%(kTargetFPS * 2) == 0) {
+        titleIndex++;
+        if (titleIndex%3 == 0) {
+            ofSetWindowTitle("Beard or Fro");
+        } else if (titleIndex%3 == 1) {
+            ofSetWindowTitle("Click to toggle between a beard or a fro");
+        } else {
+            ofSetWindowTitle("Press the spacebar to save a screenshot");
         }
     }
 }

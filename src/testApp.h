@@ -70,5 +70,6 @@ class testApp : public ofBaseApp {
     
         bool                debug;
         bool                info;
+        int                 titleIndex;
 		
 };
