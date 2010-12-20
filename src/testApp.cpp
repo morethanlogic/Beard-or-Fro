@@ -12,6 +12,12 @@ void testApp::setup() {
 #ifdef TARGET_OSX
     ofSetDataPathRoot("../Resources/");
 #endif
+#ifdef TARGET_WIN32
+	HWND handleWindow;
+	AllocConsole();
+	handleWindow = FindWindowA("ConsoleWindowClass", NULL);
+	ShowWindow(handleWindow, 0);
+#endif
     
     // load the textures
     if (!HairBall::s_tex.loadImage("hair.png")) {
