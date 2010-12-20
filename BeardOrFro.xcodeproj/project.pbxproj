@@ -58,11 +58,11 @@
 		272DE64B12BE86C10035EF08 /* ofxCvGrayscaleImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272DE61612BE86C10035EF08 /* ofxCvGrayscaleImage.cpp */; };
 		272DE64C12BE86C10035EF08 /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272DE61812BE86C10035EF08 /* ofxCvImage.cpp */; };
 		272DE64D12BE86C10035EF08 /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272DE61B12BE86C10035EF08 /* ofxCvShortImage.cpp */; };
-		272DE67712BE88210035EF08 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 272DE67612BE88210035EF08 /* main.mm */; };
 		272DE6E012BE8B2C0035EF08 /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = 272DE6DC12BE8B2C0035EF08 /* haarcascade_frontalface_default.xml */; };
 		272DE6E112BE8B2C0035EF08 /* hair.png in Resources */ = {isa = PBXBuildFile; fileRef = 272DE6DD12BE8B2C0035EF08 /* hair.png */; };
 		272DE6E312BE8B2C0035EF08 /* NoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272DE6DF12BE8B2C0035EF08 /* NoWindow.xib */; };
 		272DE72212BE94AF0035EF08 /* BeardOrFro.icns in Resources */ = {isa = PBXBuildFile; fileRef = 272DE72112BE94AF0035EF08 /* BeardOrFro.icns */; };
+		272DE79412BED9540035EF08 /* mainCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 272DE79312BED9540035EF08 /* mainCocoa.mm */; };
 		27BF79691281C43F00ECA5D6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BF77B71281C43E00ECA5D6 /* AppDelegate.mm */; };
 		27BF796A1281C43F00ECA5D6 /* AppWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BF77B91281C43E00ECA5D6 /* AppWindow.mm */; };
 		27BF796B1281C43F00ECA5D6 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 27BF77BC1281C43E00ECA5D6 /* GLView.mm */; };
@@ -258,12 +258,12 @@
 		272DE61B12BE86C10035EF08 /* ofxCvShortImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxCvShortImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.cpp; sourceTree = SOURCE_ROOT; };
 		272DE61C12BE86C10035EF08 /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxCvShortImage.h; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.h; sourceTree = SOURCE_ROOT; };
 		272DE61D12BE86C10035EF08 /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOpenCv.h; path = ../../../addons/ofxOpenCv/src/ofxOpenCv.h; sourceTree = SOURCE_ROOT; };
-		272DE67612BE88210035EF08 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
 		272DE6DC12BE8B2C0035EF08 /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_default.xml; path = resources/haarcascade_frontalface_default.xml; sourceTree = SOURCE_ROOT; };
 		272DE6DD12BE8B2C0035EF08 /* hair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hair.png; path = resources/hair.png; sourceTree = SOURCE_ROOT; };
 		272DE6DF12BE8B2C0035EF08 /* NoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NoWindow.xib; path = resources/NoWindow.xib; sourceTree = SOURCE_ROOT; };
 		272DE71512BE8C200035EF08 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		272DE72112BE94AF0035EF08 /* BeardOrFro.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BeardOrFro.icns; sourceTree = "<group>"; };
+		272DE79312BED9540035EF08 /* mainCocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mainCocoa.mm; path = src/mainCocoa.mm; sourceTree = SOURCE_ROOT; };
 		27BF77B61281C43E00ECA5D6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		27BF77B71281C43E00ECA5D6 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		27BF77B81281C43E00ECA5D6 /* AppWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppWindow.h; sourceTree = "<group>"; };
@@ -714,7 +714,7 @@
 		BB1360CA124D437A0044C71F /* src */ = {
 			isa = PBXGroup;
 			children = (
-				272DE67612BE88210035EF08 /* main.mm */,
+				272DE79312BED9540035EF08 /* mainCocoa.mm */,
 				272DE58C12BE86AF0035EF08 /* testApp.h */,
 				272DE58D12BE86AF0035EF08 /* testApp.cpp */,
 				272DE58E12BE86AF0035EF08 /* HairBall.h */,
@@ -1128,7 +1128,7 @@
 				272DE64B12BE86C10035EF08 /* ofxCvGrayscaleImage.cpp in Sources */,
 				272DE64C12BE86C10035EF08 /* ofxCvImage.cpp in Sources */,
 				272DE64D12BE86C10035EF08 /* ofxCvShortImage.cpp in Sources */,
-				272DE67712BE88210035EF08 /* main.mm in Sources */,
+				272DE79412BED9540035EF08 /* mainCocoa.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
