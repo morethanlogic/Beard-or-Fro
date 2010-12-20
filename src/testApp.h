@@ -7,6 +7,8 @@
 #include "HairBall.h"
 #include "Person.h"
 
+#define kTargetFPS         30
+
 #define kCaptureWidth     320
 #define kCaptureHeight    240
 #define kCaptureScale       2

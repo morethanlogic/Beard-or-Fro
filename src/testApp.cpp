@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup() {
     ofSeedRandom();
-    //ofSetFrameRate(FPS);
+    ofSetFrameRate(kTargetFPS);
     ofEnableAlphaBlending();
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofSetBackgroundAuto(false);
