@@ -167,7 +167,11 @@ void testApp::keyPressed(int key) {
             break;
             
         case ' ':
-            toggleHairOrBeard();
+#ifdef TARGET_OSX
+            ofSaveScreen("../../../BeardOrFro_" + ofToString(ofGetYear()) + ofToString(ofGetMonth()) + ofToString(ofGetDay()) + "_" + ofToString(ofGetFrameNum()) + ".jpg");
+#else
+            ofSaveScreen("../BeardOrFro_" + ofToString(ofGetYear()) + ofToString(ofGetMonth()) + ofToString(ofGetDay()) + "_" + ofToString(ofGetFrameNum()) + ".jpg");
+#endif
             break;
             
         case OF_KEY_UP:
@@ -200,6 +204,7 @@ void testApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button) {
+    toggleHairOrBeard();
 }
 
 //--------------------------------------------------------------
